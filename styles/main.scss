@@ -6,9 +6,105 @@ html {
 	font-size: 62.5%;
 }
 
+@mixin respond-screen {
+	@media screen and (max-width: 430px) {
+		@content;
+	}
+}
+
 .calc__body {
-	width: 60%;
-	margin: 3.5rem auto;
+	width: 50%;
+	min-width: 36.9rem;
+	max-width: 39.9rem;
+	margin: 3.5rem auto 0;
 	background-color: rgb(39, 39, 39);
-	border-radius: 2rem;
+	border-radius: 1.5rem;
+	padding: 2rem;
+	position: relative;
+	@include respond-screen {
+		min-width: 30.4rem;
+		width: 85%;
+		padding: 2rem 0.5rem;
+	}
+}
+
+.calc__screen {
+	background-color: #ffffff;
+	width: 80%;
+	margin: 2rem auto;
+	padding: 1rem;
+	font-size: 2rem;
+	text-align: right;
+}
+
+.calc__buttons {
+	width: 90%;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.calc__left {
+	width: 80%;
+	margin-right: 1rem;
+	@include respond-screen {
+		margin-right: 0.2rem;
+	}
+
+	&__op {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1rem;
+		margin-bottom: 1rem;
+		@include respond-screen {
+			gap: 0.2rem;
+			margin-bottom: 0.2rem;
+		}
+	}
+}
+
+.calc__right {
+	width: 20%;
+}
+.buttn {
+	background-color: rgb(192, 192, 192);
+	cursor: pointer;
+	padding: 2.5rem;
+	font-size: 1.5rem;
+	text-align: center;
+}
+
+.zero {
+	flex: 3 1 auto;
+}
+
+.op {
+	background-color: rgb(207, 99, 10);
+	color: #ffffff;
+}
+
+.ac {
+	width: 100%;
+}
+
+.calc__numbers {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat(3, 1fr);
+
+	& div:nth-child(10) {
+		grid-column: 1/3;
+	}
+	@include respond-screen {
+		gap: 0.2rem;
+	}
+}
+
+.calc__op {
+	display: grid;
+	gap: 1rem;
+	@include respond-screen {
+		gap: 0.2rem;
+	}
 }
