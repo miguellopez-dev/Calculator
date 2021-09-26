@@ -79,7 +79,9 @@ html {
 	flex: 3 1 auto;
 }
 
-.op {
+.op,
+.eq,
+.clear {
 	background-color: rgb(207, 99, 10);
 	color: #ffffff;
 }

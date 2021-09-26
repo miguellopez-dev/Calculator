@@ -94,7 +94,9 @@ html {
           flex: 3 1 auto;
 }
 
-.op {
+.op,
+.eq,
+.clear {
   background-color: #cf630a;
   color: #ffffff;
 }
