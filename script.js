@@ -2,6 +2,7 @@ let display = document.querySelector('.calc__screen');
 let bttnNum = document.querySelectorAll('.num');
 let op = document.querySelectorAll('.op');
 let eq = document.querySelector('.eq');
+const ac = document.querySelector('.clear');
 
 let num1 = 0;
 let num2 = 0;
@@ -36,9 +37,16 @@ op.forEach((el) => {
 eq.addEventListener('click', () => {
 	num1 = parseFloat(num1);
 	num2 = parseFloat(num2);
-	console.log(typeof num1);
 	operate(num2, opSymbol, num1);
 	display.innerHTML = finalNumber;
+});
+
+ac.addEventListener('click', () => {
+	num1 = 0;
+	num2 = 0;
+	opSymbol = undefined;
+	finalNumber = undefined;
+	display.innerHTML = 0;
 });
 
 const add = function (num1, num2) {
