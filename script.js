@@ -27,18 +27,37 @@ bttnNum.forEach((el) => {
 
 op.forEach((el) => {
 	el.addEventListener('click', () => {
-		opSymbol = el.innerHTML;
-		display.innerHTML = 0;
-		num2 = num1;
-		num1 = 0;
+		if (finalNumber) {
+			num2 = finalNumber;
+			num1 = 0;
+			display.innerHTML = 0;
+			opSymbol = el.innerHTML;
+		} else if (num2 > 0) {
+			num2 = parseFloat(num2);
+			num1 = parseFloat(num1);
+			operate(num2, opSymbol, num1);
+			opSymbol = el.innerHTML;
+			num2 = finalNumber;
+			display.innerHTML = num2;
+		} else {
+			opSymbol = el.innerHTML;
+			display.innerHTML = 0;
+			num2 = num1;
+			num1 = 0;
+		}
 	});
 });
 
 eq.addEventListener('click', () => {
-	num1 = parseFloat(num1);
-	num2 = parseFloat(num2);
-	operate(num2, opSymbol, num1);
-	display.innerHTML = finalNumber;
+	if (!opSymbol) {
+		display.innerHTML = 0;
+		return;
+	} else {
+		num1 = parseFloat(num1);
+		num2 = parseFloat(num2);
+		operate(num2, opSymbol, num1);
+		display.innerHTML = finalNumber;
+	}
 });
 
 ac.addEventListener('click', () => {
