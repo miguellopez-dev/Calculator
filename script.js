@@ -11,11 +11,11 @@ let finalNumber;
 
 bttnNum.forEach((el) => {
 	el.addEventListener('click', () => {
-		if (num1 == 0) {
+		if (finalNumber) {
+			finalNumber = undefined;
 			num1 = el.innerHTML;
 			display.innerHTML = num1;
-		} else if (finalNumber) {
-			finalNumber = undefined;
+		} else if (num1 == 0) {
 			num1 = el.innerHTML;
 			display.innerHTML = num1;
 		} else {
@@ -68,6 +68,14 @@ ac.addEventListener('click', () => {
 	display.innerHTML = 0;
 });
 
+const darkSide = function () {
+	num1 = 0;
+	num2 = 0;
+	opSymbol = undefined;
+
+	finalNumber = 'The dark side in you I sense.';
+};
+
 const add = function (num1, num2) {
 	return (finalNumber = num1 + num2);
 };
@@ -81,7 +89,11 @@ const multiply = function (num1, num2) {
 };
 
 const divide = function (num1, num2) {
-	return (finalNumber = num1 / num2);
+	if (num2 == 0) {
+		return darkSide();
+	} else {
+		return (finalNumber = num1 / num2);
+	}
 };
 
 const operate = function (num1, op, num2) {
