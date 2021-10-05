@@ -2,6 +2,7 @@ let display = document.querySelector('.calc__screen');
 let bttnNum = document.querySelectorAll('.num');
 let op = document.querySelectorAll('.op');
 let eq = document.querySelector('.eq');
+let dot = document.querySelector('.dot');
 const ac = document.querySelector('.clear');
 
 let num1 = 0;
@@ -11,13 +12,30 @@ let finalNumber;
 
 bttnNum.forEach((el) => {
 	el.addEventListener('click', () => {
-		if (finalNumber) {
-			finalNumber = undefined;
-			num1 = el.innerHTML;
-			display.innerHTML = num1;
+		if (el.innerHTML == '.') {
+			if (!display.innerHTML.includes('.')) {
+				num1 += el.innerHTML;
+				display.innerHTML = num1;
+			} else {
+				return;
+			}
+		} else if (finalNumber) {
+			if (display.innerHTML.includes('.')) {
+				num1 += el.innerHTML;
+				display.innerHTML = num1;
+			} else {
+				finalNumber = undefined;
+				num1 = el.innerHTML;
+				display.innerHTML = num1;
+			}
 		} else if (num1 == 0) {
-			num1 = el.innerHTML;
-			display.innerHTML = num1;
+			if (display.innerHTML.includes('.')) {
+				num1 += el.innerHTML;
+				display.innerHTML = num1;
+			} else {
+				num1 = el.innerHTML;
+				display.innerHTML = num1;
+			}
 		} else {
 			num1 += el.innerHTML;
 			display.innerHTML = num1;
