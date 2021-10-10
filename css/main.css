@@ -18,23 +18,26 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  background-image: url("../images/calc-bg1.jpeg");
+  background-size: cover;
+  background-position: center;
 }
 
 .calc__body {
   width: 50%;
   min-width: 36.9rem;
   max-width: 39.9rem;
-  background-color: #272727;
+  background-color: #3f3f3f;
   border-radius: 0.5rem;
-  padding: 2rem;
+  padding: 1rem 0 3rem;
   position: relative;
 }
 
 @media screen and (max-width: 430px) {
   .calc__body {
     min-width: 30.4rem;
-    width: 85%;
-    padding: 2rem 0.5rem;
+    width: 90%;
+    padding: 0rem 0.5rem 2rem;
   }
 }
 
@@ -42,8 +45,8 @@ html {
   background-color: #ffffff;
   width: 80%;
   margin: 2rem auto;
-  padding: 1rem;
-  font-size: 2rem;
+  padding: 2rem;
+  font-size: 3rem;
   text-align: right;
 }
 
