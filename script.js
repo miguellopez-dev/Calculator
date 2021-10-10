@@ -86,33 +86,33 @@ ac.addEventListener('click', () => {
 	display.innerHTML = 0;
 });
 
-const darkSide = function () {
+function darkSide() {
 	num1 = 0;
 	num2 = 0;
 	opSymbol = undefined;
 
 	finalNumber = 'The dark side in you I sense.';
-};
+}
 
-const add = function (num1, num2) {
+function add(num1, num2) {
 	return (finalNumber = num1 + num2);
-};
+}
 
-const subtract = function (num1, num2) {
+function subtract(num1, num2) {
 	return (finalNumber = num1 - num2);
-};
+}
 
-const multiply = function (num1, num2) {
+function multiply(num1, num2) {
 	return (finalNumber = num1 * num2);
-};
+}
 
-const divide = function (num1, num2) {
+function divide(num1, num2) {
 	if (num2 == 0) {
 		return darkSide();
 	} else {
 		return (finalNumber = num1 / num2);
 	}
-};
+}
 
 const goodRound = (number) => Number(Math.round(number + 'e' + 5) + 'e-' + 5);
 
