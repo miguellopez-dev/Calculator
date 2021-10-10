@@ -74,7 +74,7 @@ eq.addEventListener('click', () => {
 		num1 = parseFloat(num1);
 		num2 = parseFloat(num2);
 		operate(num2, opSymbol, num1);
-		display.innerHTML = finalNumber;
+		display.innerHTML = goodRound(finalNumber);
 	}
 });
 
@@ -113,6 +113,8 @@ const divide = function (num1, num2) {
 		return (finalNumber = num1 / num2);
 	}
 };
+
+const goodRound = (number) => Number(Math.round(number + 'e' + 5) + 'e-' + 5);
 
 const operate = function (num1, op, num2) {
 	s = op;
