@@ -7,11 +7,23 @@ html {
   font-size: 62.5%;
 }
 
+.center {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .calc__body {
   width: 50%;
   min-width: 36.9rem;
   max-width: 39.9rem;
-  margin: 3.5rem auto 0;
   background-color: #272727;
   border-radius: 0.5rem;
   padding: 2rem;

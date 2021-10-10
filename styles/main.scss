@@ -12,11 +12,17 @@ html {
 	}
 }
 
+.center {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 .calc__body {
 	width: 50%;
 	min-width: 36.9rem;
 	max-width: 39.9rem;
-	margin: 3.5rem auto 0;
+
 	background-color: rgb(39, 39, 39);
 	border-radius: 0.5rem;
 	padding: 2rem;
