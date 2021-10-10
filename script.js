@@ -114,9 +114,11 @@ function divide(num1, num2) {
 	}
 }
 
-const goodRound = (number) => Number(Math.round(number + 'e' + 5) + 'e-' + 5);
+function goodRound(number) {
+	return Number(Math.round(number + 'e' + 5) + 'e-' + 5);
+}
 
-const operate = function (num1, op, num2) {
+function operate(num1, op, num2) {
 	s = op;
 	switch (s) {
 		case 'X':
@@ -134,4 +136,4 @@ const operate = function (num1, op, num2) {
 		default:
 			break;
 	}
-};
+}
