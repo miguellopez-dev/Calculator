@@ -74,7 +74,11 @@ eq.addEventListener('click', () => {
 		num1 = parseFloat(num1);
 		num2 = parseFloat(num2);
 		operate(num2, opSymbol, num1);
-		display.innerHTML = goodRound(finalNumber);
+		if (typeof finalNumber == 'string') {
+			display.innerHTML = finalNumber;
+		} else {
+			display.innerHTML = goodRound(finalNumber);
+		}
 	}
 });
 
