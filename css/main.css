@@ -111,7 +111,8 @@ html {
 
 .op,
 .eq,
-.clear {
+.clear,
+.orange {
   background-color: #cf630a;
   color: #ffffff;
 }
