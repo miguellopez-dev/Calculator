@@ -4,11 +4,22 @@ let op = document.querySelectorAll('.op');
 let eq = document.querySelector('.eq');
 let dot = document.querySelector('.dot');
 const ac = document.querySelector('.clear');
+let neg = document.querySelector('.neg');
+const per = document.querySelector('.per');
 
 let num1 = 0;
 let num2 = 0;
 let opSymbol;
 let finalNumber;
+
+neg.addEventListener('click', () => {
+	if (display.innerHTML.includes('-')) {
+		num1 = display.innerHTML.replace(/-/g, '');
+	} else {
+		num1 = '-' + num1;
+	}
+	display.innerHTML = num1;
+});
 
 bttnNum.forEach((el) => {
 	el.addEventListener('click', () => {
@@ -19,6 +30,13 @@ bttnNum.forEach((el) => {
 			} else {
 				return;
 			}
+		} else if (display.innerHTML.includes('-0')) {
+			if (display.innerHTML.length <= 2) {
+				num1 = '-' + el.innerHTML;
+			} else {
+				num1 += el.innerHTML;
+			}
+			display.innerHTML = num1;
 		} else if (finalNumber) {
 			if (display.innerHTML.includes('.')) {
 				num1 += el.innerHTML;
@@ -121,6 +139,14 @@ function divide(num1, num2) {
 function goodRound(number) {
 	return Number(Math.round(number + 'e' + 5) + 'e-' + 5);
 }
+per.addEventListener('click', () => {
+	if (!num2) {
+		num1 = num1 / 100;
+	} else if (num2) {
+		num1 = num2 * (num1 / 100);
+	}
+	display.innerHTML = num1;
+});
 
 function operate(num1, op, num2) {
 	s = op;
@@ -141,3 +167,8 @@ function operate(num1, op, num2) {
 			break;
 	}
 }
+console.log(
+	(document.onkeyup = function (e) {
+		return e;
+	})
+);
