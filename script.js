@@ -23,81 +23,18 @@ neg.addEventListener('click', () => {
 
 bttnNum.forEach((el) => {
 	el.addEventListener('click', () => {
-		if (el.innerHTML == '.') {
-			if (!display.innerHTML.includes('.')) {
-				num1 += el.innerHTML;
-				display.innerHTML = num1;
-			} else {
-				return;
-			}
-		} else if (display.innerHTML.includes('-0')) {
-			if (display.innerHTML.length <= 2) {
-				num1 = '-' + el.innerHTML;
-			} else {
-				num1 += el.innerHTML;
-			}
-			display.innerHTML = num1;
-		} else if (finalNumber) {
-			if (display.innerHTML.includes('.')) {
-				num1 += el.innerHTML;
-				display.innerHTML = num1;
-			} else {
-				finalNumber = undefined;
-				num1 = el.innerHTML;
-				display.innerHTML = num1;
-			}
-		} else if (num1 == 0) {
-			if (display.innerHTML.includes('.')) {
-				num1 += el.innerHTML;
-				display.innerHTML = num1;
-			} else {
-				num1 = el.innerHTML;
-				display.innerHTML = num1;
-			}
-		} else {
-			num1 += el.innerHTML;
-			display.innerHTML = num1;
-		}
+		numberClick(el.innerHTML);
 	});
 });
 
 op.forEach((el) => {
 	el.addEventListener('click', () => {
-		if (finalNumber) {
-			num2 = finalNumber;
-			num1 = 0;
-			display.innerHTML = 0;
-			opSymbol = el.innerHTML;
-		} else if (num2 > 0) {
-			num2 = parseFloat(num2);
-			num1 = parseFloat(num1);
-			operate(num2, opSymbol, num1);
-			opSymbol = el.innerHTML;
-			num2 = finalNumber;
-			display.innerHTML = num2;
-		} else {
-			opSymbol = el.innerHTML;
-			display.innerHTML = 0;
-			num2 = num1;
-			num1 = 0;
-		}
+		opClicks(el.innerHTML);
 	});
 });
 
 eq.addEventListener('click', () => {
-	if (!opSymbol) {
-		display.innerHTML = 0;
-		return;
-	} else {
-		num1 = parseFloat(num1);
-		num2 = parseFloat(num2);
-		operate(num2, opSymbol, num1);
-		if (typeof finalNumber == 'string') {
-			display.innerHTML = finalNumber;
-		} else {
-			display.innerHTML = goodRound(finalNumber);
-		}
-	}
+	equalClick();
 });
 
 ac.addEventListener('click', () => {
@@ -167,8 +104,98 @@ function operate(num1, op, num2) {
 			break;
 	}
 }
-console.log(
-	(document.onkeyup = function (e) {
-		return e;
-	})
-);
+
+const numKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.'];
+const opKeys = ['+', '-', '*', '/'];
+const eqSign = ['+', 'Enter'];
+
+document.onkeyup = function (el) {
+	if (numKeys.includes(el.key)) {
+		numberClick(el.key);
+	} else if (opKeys.includes(el.key)) {
+		opClicks(el.key);
+	} else if (eqSign.includes(el.key)) {
+		equalClick();
+	}
+};
+
+window.onkeydown = function (e) {
+	if (e.key == '/') {
+		e.preventDefault();
+	}
+};
+
+function opClicks(type) {
+	if (finalNumber) {
+		num2 = finalNumber;
+		num1 = 0;
+		display.innerHTML = 0;
+		opSymbol = type;
+	} else if (num2 > 0) {
+		num2 = parseFloat(num2);
+		num1 = parseFloat(num1);
+		operate(num2, opSymbol, num1);
+		opSymbol = type;
+		num2 = finalNumber;
+		display.innerHTML = num2;
+	} else {
+		opSymbol = type;
+		display.innerHTML = 0;
+		num2 = num1;
+		num1 = 0;
+	}
+}
+
+function numberClick(type) {
+	if (type == '.') {
+		if (!display.innerHTML.includes('.')) {
+			num1 += type;
+			display.innerHTML = num1;
+		} else {
+			return;
+		}
+	} else if (display.innerHTML.includes('-0')) {
+		if (display.innerHTML.length <= 2) {
+			num1 = '-' + type;
+		} else {
+			num1 += type;
+		}
+		display.innerHTML = num1;
+	} else if (finalNumber) {
+		if (display.innerHTML.includes('.')) {
+			num1 += type;
+			display.innerHTML = num1;
+		} else {
+			finalNumber = undefined;
+			num1 = type;
+			display.innerHTML = num1;
+		}
+	} else if (num1 == 0) {
+		if (display.innerHTML.includes('.')) {
+			num1 += type;
+			display.innerHTML = num1;
+		} else {
+			num1 = type;
+			display.innerHTML = num1;
+		}
+	} else {
+		num1 += type;
+		display.innerHTML = num1;
+	}
+}
+
+function equalClick(type) {
+	if (!opSymbol) {
+		display.innerHTML = 0;
+		return;
+	} else {
+		num1 = parseFloat(num1);
+		num2 = parseFloat(num2);
+		operate(num2, opSymbol, num1);
+		if (typeof finalNumber == 'string') {
+			display.innerHTML = finalNumber;
+		} else {
+			display.innerHTML = goodRound(finalNumber);
+		}
+	}
+}
