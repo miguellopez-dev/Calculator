@@ -111,14 +111,14 @@ html {
 
 .op,
 .eq,
-.clear,
 .orange {
   background-color: #cf630a;
   color: #ffffff;
 }
 
-.ac {
-  width: 100%;
+.clear {
+  background-color: #cf380a;
+  color: #ffffff;
 }
 
 .calc__numbers {
