@@ -6,6 +6,12 @@ html {
 	font-size: 62.5%;
 }
 
+body,
+html {
+	height: 100%;
+	margin: 0;
+}
+
 @mixin respond-screen {
 	@media screen and (max-width: 430px) {
 		@content;
@@ -13,13 +19,13 @@ html {
 }
 
 .center {
-	height: 100vh;
+	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	background-image: url('../images/calc-bg1.jpeg');
 	background-size: cover;
-	background-position: center;
+	background-position: center center;
 }
 .calc__body {
 	width: 50%;
