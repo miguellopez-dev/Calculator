@@ -1,10 +1,10 @@
 let display = document.querySelector('.calc__screen');
 let bttnNum = document.querySelectorAll('.num');
 let op = document.querySelectorAll('.op');
-let eq = document.querySelector('.eq');
-let dot = document.querySelector('.dot');
+const eq = document.querySelector('.eq');
+const dot = document.querySelector('.dot');
 const ac = document.querySelector('.clear');
-let neg = document.querySelector('.neg');
+const neg = document.querySelector('.neg');
 const per = document.querySelector('.per');
 
 let num1 = 0;
@@ -107,7 +107,7 @@ function operate(num1, op, num2) {
 
 const numKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.'];
 const opKeys = ['+', '-', '*', '/'];
-const eqSign = ['+', 'Enter'];
+const eqSign = ['=', 'Enter'];
 
 document.onkeyup = function (el) {
 	if (numKeys.includes(el.key)) {
