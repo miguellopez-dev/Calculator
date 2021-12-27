@@ -150,4 +150,21 @@ html {
     gap: 0.2rem;
   }
 }
+
+footer {
+  margin: 0;
+}
+
+.credit {
+  text-align: center;
+  color: #ffffff;
+}
+
+.credit a {
+  color: #ffffff;
+}
+
+.credit a:hover {
+  color: #cf380a;
+}
 /*# sourceMappingURL=main.css.map */

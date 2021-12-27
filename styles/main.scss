@@ -122,3 +122,16 @@ html {
 		gap: 0.2rem;
 	}
 }
+footer {
+	margin: 0;
+}
+.credit {
+	text-align: center;
+	color: #ffffff;
+	& a {
+		color: #ffffff;
+		&:hover {
+			color: rgb(207, 56, 10);
+		}
+	}
+}
