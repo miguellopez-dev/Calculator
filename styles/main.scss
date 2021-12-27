@@ -11,6 +11,7 @@ html {
 	background-size: auto;
 	background-position: center;
 	background-repeat: no-repeat;
+	background-color: #dbb975;
 }
 
 @mixin respond-screen {
@@ -33,14 +34,14 @@ html {
 	padding: 1rem 0 3rem;
 	position: relative;
 	@include respond-screen {
-		min-width: 30.4rem;
+		min-width: 33.4rem;
 		width: 100%;
 	}
 }
 
 .calc__screen {
 	background-color: #ffffff;
-	width: 79%;
+	width: 78%;
 	margin: 2rem auto;
 	padding: 2rem;
 	font-size: 3rem;
